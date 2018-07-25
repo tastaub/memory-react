@@ -1,9 +1,11 @@
 
 import React from 'react'
-import { Image } from 'semantic-ui-react'
 
 const Title = props => (
-    <Image src={"https://fanart.tv/fanart/movies/36657/hdmovielogo/x-men-51c2b262856af.png"} />
+    <div>
+        <h1>Clicky Game</h1>
+        <h4>Click an image to get a point but don't click the same one twice.</h4>
+    </div>
 )
   
   export default Title
