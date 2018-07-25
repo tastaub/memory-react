@@ -1,13 +1,13 @@
 
 import React from 'react'
-import { Container } from 'semantic-ui-react'
+
 
 import "./Container.css"
 
 const Content = props => (
-    <Container>
+    <div className="container center">
         {props.children}
-    </Container>
+    </div>
   )
   
   export default Content

@@ -1,14 +1,22 @@
 import React from "react";
-import { Image } from 'semantic-ui-react'
+
 
 import "./Wrapper.css"
 
 const Wrapper = props => (
-        <Image.Group size="small">
+    <div className="container">
+        <div className="row">
             {props.data.map(x => (
-                <Image src={x.image}  onClick={() => {props.onClick(x.id)}}  />
+                <div className="col m3">
+                    <div className="card">
+                        <div className="card-image">
+                            <img src={x.image}  key={x.id} onClick={() => {props.onClick(x.id)}}/>
+                        </div>
+                    </div>
+                </div>
             ))}
-        </Image.Group>
+        </div>
+    </div>
 )
 
 export default Wrapper;

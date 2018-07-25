@@ -37,14 +37,15 @@ class App extends Component {
       friends: friends,
       score: 0,
       highScore: 0,
-      clicked: []
+      clicked: [],
+      correct: ""
     }
 
     // this.shuffleFriends = this.shuffleFriends.bind(this)
     this.handleClick = this.handleClick.bind(this)
   }
 
-  checkScore = (score) => {
+  checkScore = score => {
     if(score > this.state.highScore)  {
       return score
     } else  {
@@ -52,7 +53,7 @@ class App extends Component {
     }
   }
 
-  handleClick = (id) => {
+  handleClick = id => {
     let score = this.state.score
     let newFriends =shuffle(friends)
     if(this.state.clicked.indexOf(id) === -1) {
@@ -61,16 +62,17 @@ class App extends Component {
         friends: newFriends,
         score: score += 1,
         clicked: clicked,
-        highScore: this.checkScore(score)
+        highScore: this.checkScore(score),
+        correct: "Hooray you did it!"
       })
       console.log(this.state)
     } else  {
-      alert("You lose")
       this.setState({
         friends: newFriends,
         score: 0,
         clicked: [],
-        highScore: this.checkScore(score)
+        highScore: this.checkScore(score),
+        correct: "You clicked already. Game Over!"
       })
       console.log(this.state)
     }
@@ -80,7 +82,7 @@ class App extends Component {
   render() {
     return (
       <div>
-      <Menu score={this.state.score} highScore={this.state.highScore} />
+      <Menu score={this.state.score} highScore={this.state.highScore} correct={this.state.correct}/>
       <Container>
         <Title />
         <Wrapper 
