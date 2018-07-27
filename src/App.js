@@ -27,6 +27,42 @@ function shuffle(array) {
   return array;
 }
 
+const messageArray = [
+  {
+      "msg": "Hooray, you did it!"
+  },
+  {
+      "msg": "Wow, you must be smart!"
+  },
+  {
+      "msg": "Oh my, keep going!"
+  },
+  {
+      "msg": "Lets GOOOOOOOOO!"
+  },
+  {
+      "msg": "Oh Baby!"
+  },
+  {
+      "msg": "BANG, keep it up my friend!"
+  },
+  {
+      "msg": "You are amazing!"
+  },
+  {
+      "msg": "I can't beleive what I am seeing!"
+  },
+  {
+      "msg": "This is happening, it's really happening!"
+  }
+]
+
+const randomMessage = () => {
+  let randomIndex = Math.floor((Math.random() * messageArray.length))
+  return messageArray[randomIndex].msg
+}
+
+
 
 
 class App extends Component {
@@ -56,6 +92,7 @@ class App extends Component {
   handleClick = id => {
     let score = this.state.score
     let newFriends =shuffle(friends)
+    let message = randomMessage()
     if(this.state.clicked.indexOf(id) === -1) {
       let clicked = this.state.clicked.concat(id)
       this.setState({
@@ -63,7 +100,7 @@ class App extends Component {
         score: score += 1,
         clicked: clicked,
         highScore: this.checkScore(score),
-        correct: "Hooray you did it!"
+        correct: message
       })
       console.log(this.state)
     } else  {
