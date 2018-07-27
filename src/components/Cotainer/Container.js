@@ -5,7 +5,7 @@ import React from 'react'
 import "./Container.css"
 
 const Content = props => (
-    <div className="container center">
+    <div className="center">
         {props.children}
     </div>
   )

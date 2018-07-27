@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import Wrapper from "./components/Wrapper";
 import Container from "./components/Cotainer";
 import Menu from "./components/Menu"
-import Title from "./components/Title"
+// import Title from "./components/Title"
 import friends from "./friends.json";
 import "./App.css";
 
@@ -74,7 +74,7 @@ class App extends Component {
       score: 0,
       highScore: 0,
       clicked: [],
-      correct: ""
+      correct: "Click each image just once."
     }
 
     // this.shuffleFriends = this.shuffleFriends.bind(this)
@@ -121,7 +121,6 @@ class App extends Component {
       <div>
       <Menu score={this.state.score} highScore={this.state.highScore} correct={this.state.correct}/>
       <Container>
-        <Title />
         <Wrapper 
           data={friends}
           onClick={this.handleClick}

@@ -17,7 +17,7 @@ import { Menu } from 'semantic-ui-react'
       // </Menu>
       <div className="navbar-fixed">
       <nav>
-        <div className="nav-wrapper">
+        <div className="nav-wrapper blue darken-2">
           <span className="brand-logo">{props.correct}</span>
 
           <ul className="right hide-on-med-and-down">
