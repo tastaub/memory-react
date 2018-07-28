@@ -93,24 +93,34 @@ class App extends Component {
     let score = this.state.score
     let newFriends =shuffle(friends)
     let message = randomMessage()
-    if(this.state.clicked.indexOf(id) === -1) {
-      let clicked = this.state.clicked.concat(id)
-      this.setState({
-        friends: newFriends,
-        score: score += 1,
-        clicked: clicked,
-        highScore: this.checkScore(score),
-        correct: message
-      })
-      console.log(this.state)
-    } else  {
+    if(this.state.score === 11) {
       this.setState({
         friends: newFriends,
         score: 0,
         clicked: [],
-        highScore: this.checkScore(score),
-        correct: "You clicked already. Game Over!"
+        highScore: 12,
+        correct: "100%, job well done. Click to play again."
       })
+    } else {
+      if(this.state.clicked.indexOf(id) === -1) {
+        let clicked = this.state.clicked.concat(id)
+        this.setState({
+          friends: newFriends,
+          score: score += 1,
+          clicked: clicked,
+          highScore: this.checkScore(score),
+          correct: message
+        })
+        console.log(this.state)
+      } else  {
+        this.setState({
+          friends: newFriends,
+          score: 0,
+          clicked: [],
+          highScore: this.checkScore(score),
+          correct: "You clicked already. Game Over!"
+        })
+      }
       console.log(this.state)
     }
   }
